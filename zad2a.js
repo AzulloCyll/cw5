@@ -7,27 +7,23 @@ for (let i = 0; i < $trCollection.length; i++) {
 
 for (let i = 0; i < $tdCollections.length; i++) {
   for (j = 0; j < $tdCollections[i].length; j++) {
-    // kolorowanie komorek za pomocą warunków na rozowo
+    // kolorowanie komórek za pomocą warunków na rózowo
     if ((i % 2 != 0 && j % 2 != 0) || (i % 2 == 0 && j % 2 == 0)) {
       $tdCollections[i][j].style.backgroundColor = "pink";
-      // obsluga klikniecia na elementach rozowych
+      // obsługa klikniecia na elementach różowych
       $tdCollections[i][j].onclick = function (event) {
-        if (this.style.backgroundColor == "pink") {
-          this.style.backgroundColor = "red";
-        } else {
-          this.style.backgroundColor = "pink";
-        }
+        this.style.backgroundColor == "pink"
+          ? (this.style.backgroundColor = "red")
+          : (this.style.backgroundColor = "pink");
       };
     } else {
       // kolorowanie komorek za pomocą warunków na jasnoniebiesko
       $tdCollections[i][j].style.backgroundColor = "lightblue";
-      // obsluga klikniecia na elementach jasnoniebieskich
+      // obsługa klikniecia na elementach jasnoniebieskich
       $tdCollections[i][j].onclick = function (event) {
-        if (this.style.backgroundColor == "lightblue") {
-          this.style.backgroundColor = "blue";
-        } else {
-          this.style.backgroundColor = "lightblue";
-        }
+        this.style.backgroundColor == "lightblue"
+          ? (this.style.backgroundColor = "blue")
+          : (this.style.backgroundColor = "lightblue");
       };
     }
   }
@@ -39,11 +35,9 @@ for (let i = 0; i < $tdCollections.length; i++) {
     if ((i % 2 != 0 && j % 2 != 0) || (i % 2 == 0 && j % 2 == 0)) {
       $tdCollections[i][j].style.backgroundColor = "pink";
       $tdCollections[i][j].onmouseenter = function (event) {
-        if (this.style.backgroundColor == "pink") {
-          this.style.backgroundColor = "red";
-        } else {
-          this.style.backgroundColor = "pink";
-        }
+        this.style.backgroundColor == "pink"
+          ? (this.style.backgroundColor = "red")
+          : (this.style.backgroundColor = "pink");
       };
       $tdCollections[i][j].onmouseleave = function (event) {
         if (this.style.backgroundColor == "pink") {
@@ -55,18 +49,14 @@ for (let i = 0; i < $tdCollections.length; i++) {
     } else {
       $tdCollections[i][j].style.backgroundColor = "lightblue";
       $tdCollections[i][j].onmouseenter = function (event) {
-        if (this.style.backgroundColor == "lightblue") {
-          this.style.backgroundColor = "blue";
-        } else {
-          this.style.backgroundColor = "lightblue";
-        }
+        this.style.backgroundColor == "lightblue"
+          ? (this.style.backgroundColor = "blue")
+          : (this.style.backgroundColor = "lightblue");
       };
       $tdCollections[i][j].onmouseleave = function (event) {
-        if (this.style.backgroundColor == "lightblue") {
-          this.style.backgroundColor = "blue";
-        } else {
-          this.style.backgroundColor = "lightblue";
-        }
+        this.style.backgroundColor == "lightblue"
+          ? (this.style.backgroundColor = "blue")
+          : (this.style.backgroundColor = "lightblue");
       };
     }
   }
