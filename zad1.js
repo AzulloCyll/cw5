@@ -143,3 +143,12 @@ $divChildren = document
   .getElementsByTagName("div")[0]
   .getElementsByTagName("*");
 console.log("Element DIV ma " + $divChildren.length + " dzieci");
+
+document.body.addEventListener(
+  "DOMSubtreeModified",
+  function () {
+    document.getElementsByTagName("div")[0].getElementsByTagName("*");
+    console.log("Element DIV ma " + $divChildren.length + " dzieci");
+  },
+  false
+);
