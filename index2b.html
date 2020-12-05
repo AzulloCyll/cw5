@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css2b.css">
+    </link>
+</head>
+
+<body>
+    <form id="myForm" name="myForm" method="POST">
+
+        <label for="login">Login:
+            <div class="popup login"><span>Uwaga! Login zawiera niedozwolone słowo.</span></div>
+        </label>
+        <input id="login" name="login" type="text" required>
+        <div class="info">Nie może zawierać słowa: admin</div>
+
+        <label for="pass">Hasło:
+            <div class="popup pass"><span>Uwaga! Hasło posiada zbyt mało znaków.</span></div>
+        </label>
+        <input id="pass" name="pass" type="password" required>
+        <div class="info">Conajmniej 8 znaków</div>
+
+        <label for="pass2">Powtórz hasło:
+            <div class="popup pass2"><span>Uwaga! Hasła niezgodne.</span></div>
+        </label>
+        <input id="pass2" name="pass2" type="password" required>
+
+        <label for="name">Imię:
+            <div class="popup name"><span>Podaj też imię.</span></div>
+        </label>
+        <input id="name" name="name" type="text">
+
+        <label for="surname">Nazwisko:
+            <div class="popup surname"><span>Podaj też nazwisko.</span></div>
+        </label>
+        <input id="surname" name="surmane" type="text">
+
+        <label for="email">e-mail:
+            <div class="popup email"><span>Uwaga! Błędny adres e-mail.</span></div></label>
+        <input id="email" name="email" type="text">
+
+        <label for="tel">Telefon:
+            <div class="popup tel"><span>Uwaga! Błędny numer telefonu.</span></div></label>
+        <input id="tel" name="tel" type="tel">
+
+        <input id="agree" name="agree" type="checkbox">
+        <label for="agree">Musisz wyrazić zgodę<br /> na wysłanie formularza
+            <div class="popup agree last">
+                <span>Zgoda jest wymagana.</span></div></label>
+        <button id="submit" id="submit">Wyślij formularz</button>
+    </form>
+
+
+    <script src="zad2b.js"></script>
+</body>
+
+</html>
