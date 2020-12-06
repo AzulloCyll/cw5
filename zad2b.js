@@ -69,7 +69,7 @@ $buttonSubmit.form.onsubmit = function (event) {
     $telSummary.innerText = "Telefon: " + $telEl.value;
     $summaryDiv.appendChild($telSummary);
 
-    //czyszczenie wartosci elementow formularza
+    //czyszczenie wartosci elementow formularza oraz chowanie popupow
     $loginEl.value = "";
     $passEl.value = "";
     $pass2El.value = "";
