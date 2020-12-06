@@ -29,7 +29,7 @@ for (let i = 0; i < $tdCollections.length; i++) {
   }
 }
 
-// analogicznie obsługa znalezienia się kursora myszyy nad elementem + opuszczenie kursora obrębu elementu
+// analogicznie obsługa znalezienia się kursora myszy nad elementem + opuszczenie kursora obrębu elementu
 for (let i = 0; i < $tdCollections.length; i++) {
   for (j = 0; j < $tdCollections[i].length; j++) {
     if ((i % 2 != 0 && j % 2 != 0) || (i % 2 == 0 && j % 2 == 0)) {

@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <form id="myForm" name="myForm" method="POST">
+    <form id="myForm" name="myForm" method="POST" novalidate>
 
         <label for="login">Login:
             <div class="popup login"><span>Uwaga! Login zawiera niedozwolone słowo.</span></div>
@@ -47,12 +47,16 @@
             <div class="popup tel"><span>Uwaga! Błędny numer telefonu.</span></div></label>
         <input id="tel" name="tel" type="tel">
 
-        <input id="agree" name="agree" type="checkbox">
+        <input id="agree" name="agree" type="checkbox" required>
         <label for="agree">Musisz wyrazić zgodę<br /> na wysłanie formularza
             <div class="popup agree last">
                 <span>Zgoda jest wymagana.</span></div></label>
         <button id="submit" id="submit">Wyślij formularz</button>
     </form>
+
+    <div class="summary">
+        <h2>Podsumowanie:</h2>
+    </div>
 
 
     <script src="zad2b.js"></script>

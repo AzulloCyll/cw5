@@ -6,7 +6,7 @@ let $errorNameEl = document.getElementsByClassName("name");
 let $errorSurnameEl = document.getElementsByClassName("surname");
 let $errorEmailEl = document.getElementsByClassName("email");
 let $errorTelEl = document.getElementsByClassName("tel");
-let $errorAgree = document.getElementsByClassName("agree");
+let $errorAgreeEl = document.getElementsByClassName("agree");
 
 let $loginEl = document.getElementById("login");
 let $passEl = document.getElementById("pass");
@@ -78,8 +78,8 @@ $telEl.onkeyup = function (event) {
 
 $agreeEl.onclick = function (event) {
   if (event.target.checked != true) {
-    $errorAgree[0].style.display = "block";
+    $errorAgreeEl[0].style.display = "block";
   } else {
-    $errorAgree[0].style.display = "none";
+    $errorAgreeEl[0].style.display = "none";
   }
 };
