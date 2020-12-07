@@ -55,7 +55,7 @@ for (let i = 0; i < $pArr.length; i++) {
   pWordArr[i] = $pArr[i].textContent.split(" ");
 }
 
-// sprawdzaniie i podmienianie wyrazów
+// sprawdzaniie i podmiana wyrazów
 function checkArray(inputArr, wordsArr) {
   for (let i = 0; i < inputArr.length; i++) {
     for (let j = 0; j < inputArr[i].length; j++) {
