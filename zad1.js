@@ -18,6 +18,7 @@ let $myText = document.createElement("span"); // z textNodem były problemy
 let $myButton = document.createElement("button");
 
 for (let i = 0; i < texts.length; ++i) {
+  //tworzy elementy P, uzupełnia je tekstami z macierzy tekstów
   var $paragraph = document.createElement("p");
   $paragraph.textContent = texts[i];
   $firstDiv.appendChild($paragraph);
@@ -31,13 +32,14 @@ for (let i = 0; i < texts.length; i++) {
   $firstDiv.insertBefore($heading, $allParagraphs[i]); //<div>.insertBefore(<h*>,<p[i]>)
 }
 
-/// tworzę macierz z kolekcjami[0]
+/// tworzę macierz z kolekcjami H
 var $allHeadings = [];
 for (let i = 0; i < texts.length; i++) {
   let $heading = document.getElementsByTagName("h" + (i + 1));
   $allHeadings.push(Array.from($heading));
 }
 
+//dodaje obsługe eventu onclick do nagłówków H
 for (let i = 0; i < texts.length; i++) {
   $allHeadings[i][0].onclick = function (event) {
     if ($allParagraphs[i].style.display === "none") {
@@ -48,6 +50,7 @@ for (let i = 0; i < texts.length; i++) {
   };
 }
 
+// tworz element do wyswietlania ilosci znaków w polu input, oraz samo pole i przycisk
 $myTextInput.type = "text";
 $mySubmit.type = "submit";
 $mySubmit.textContent = "Wyślij";
@@ -58,8 +61,9 @@ $myForm.appendChild($myText);
 
 let typeValue = 0;
 $myText.innerHTML = "Ilość znaków: " + typeValue;
-$myText.style.visibility = "hidden"; //inicjalizacja (wypelnia miejsce)
+$myText.style.visibility = "hidden"; //inicjalizacja (wypelnia miejsce w dokumencie)
 
+//obsluga pola w celu dynamicznego wyswietlania ilosci znakow
 $myTextInput.oninput = function (event) {
   typeValue = event.target.value.length;
   $myText.innerHTML = "Ilość znaków: " + typeValue;
@@ -74,18 +78,33 @@ $myTextInput.oninput = function (event) {
   }
 };
 
+// oblsuga dodawania nowego paragrafu
 let $newP = $allParagraphs[0].cloneNode();
 let $newH = $allHeadings[0][0].cloneNode();
+
+// w przypadku zbyt malej ilosci znakow
 $mySubmit.onclick = function (event) {
   if (typeValue < 5) {
-    alert("Pole tekstowe musi być uzupełnione");
+    alert("Pole tekstowe musi być uzupełnione (conajmniej 5 znaków)");
     return false;
+  } else {
+    //zmiana zachowania przycsików kiedy liczba paragrafów się zwiększy
+    for (let i = 0; i < $buttons.length; i++)
+      $buttons[i].onclick = function (event) {
+        if ($allParagraphs[i + 1].style.display === "none") {
+          $allParagraphs[i + 1].style.display = "block";
+        } else {
+          $allParagraphs[i + 1].style.display = "none";
+        }
+      };
   }
   console.log("Wysłano");
-  console.log($myTextInput.value); ///                                           wykreowac element p i h1 i dodac na góre
 
+  //obsluga wyswietlenia paragrafu i naglowka po wcisnieciu przycisku 'Wyslij'
   $newP.textContent = $myTextInput.value;
-  let firstWord2 = $myTextInput.value.split(" ");
+
+  let firstWord2 = [];
+  firstWord2 = $myTextInput.value.split(" ");
   $newH.textContent = firstWord2[0];
   $firstDiv.insertBefore($newP, $allHeadings[0][0]);
   $firstDiv.insertBefore($newH, $allParagraphs[0]);
@@ -105,14 +124,15 @@ $mySubmit.onclick = function (event) {
 for (let i = 0; i < texts.length; ++i) {
   let $myNormalButton = document.createElement("button");
   $myNormalButton.textContent = "Usuń";
-  $firstDiv.insertBefore($myNormalButton, $allParagraphs[i].nextSibling); ///wow
+  $firstDiv.insertBefore($myNormalButton, $allParagraphs[i].nextSibling); ///wow - uzycie funkcji insertBefore, żeby wstawić coś po elemencie
 }
 
 let $buttons = document.getElementsByTagName("button");
 $buttons = [...$buttons];
 $buttons.shift();
+$buttons.pop();
 
-for (let i = 0; i < texts.length; i++)
+for (let i = 0; i < $buttons.length; i++)
   $buttons[i].onclick = function (event) {
     if ($allParagraphs[i].style.display === "none") {
       $allParagraphs[i].style.display = "block";
@@ -126,14 +146,15 @@ let $showHide = $showHideCol[$showHideCol.length - 1];
 $showHide.classList.add("showhide");
 
 $showHide.onclick = function (event) {
+  $allParagraphs = document.getElementsByTagName("p");
   if ($showHide.textContent === "Ukryj") {
     $showHide.textContent = "Pokaż";
-    for (let i = 0; i < $showHideCol.length - 1; i++) {
+    for (let i = 0; i < $allParagraphs.length - 1; i++) {
       $allParagraphs[i].style.display = "none";
     }
   } else {
     $showHide.textContent = "Ukryj";
-    for (let i = 0; i < $showHideCol.length - 1; i++) {
+    for (let i = 0; i < $allParagraphs.length - 1; i++) {
       $allParagraphs[i].style.display = "block";
     }
   }

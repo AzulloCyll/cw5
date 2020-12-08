@@ -6,9 +6,33 @@ for (i = 0; i < $pArr.length; i++) {
   $pLenghtArr[i] = $pArr[i].innerText.length;
 }
 
-let minIndex = $pLenghtArr.indexOf(205); //index najnizszej wartosci p
+//funkcja szuka najniszej wartosci w macierzy i zwraca index jego wystpienia
+function minInd(arr) {
+  let minInd = Infinity;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] < minInd) {
+      minInd = arr[i];
+    }
+  }
+  return arr.indexOf(minInd);
+}
 
-$pCollection[minIndex].style.color = "red"; // zmiana kolru paragrafu zawierajacego najmniej tekstu
+//funkcja szuka nawyższej wartosci w macierzy i zwraca index jego wystpienia
+function maxInd(arr) {
+  let maxInd = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] > maxInd) {
+      maxInd = arr[i];
+    }
+  }
+  return arr.indexOf(maxInd);
+}
+
+let minIndex = minInd($pLenghtArr);
+$pCollection[minIndex].style.color = "green"; // zmiana kolru paragrafu zawierajacego najmniej tekstu
+
+let maxIndex = maxInd($pLenghtArr);
+$pCollection[maxIndex].style.color = "red";
 
 // numer przy kazdym paragrafie
 for (let i = 0; i < $pCollection.length; i++) {
